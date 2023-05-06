@@ -1,6 +1,6 @@
 package validate_subsequence
 
-func Run(array []int, sequence []int) bool {
+func IsValidSubsequence(array []int, sequence []int) bool {
 	seqSize := len(sequence)
 	counter := 0
 	for _, i := range array {

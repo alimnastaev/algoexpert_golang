@@ -8,6 +8,6 @@ import (
 
 func TestCase1(t *testing.T) {
 	expected := []int{-1, 11}
-	output := Run([]int{3, 5, -4, 8, 11, 1, -1, 6}, 10)
+	output := TwoNumberSum([]int{3, 5, -4, 8, 11, 1, -1, 6}, 10)
 	require.ElementsMatch(t, expected, output)
 }
