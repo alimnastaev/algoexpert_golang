@@ -20,7 +20,7 @@ func TwoNumberSum(array []int, target int) (result []int) {
 	for _, el := range array {
 		x := target - el
 
-		if _, found := m[x]; found {
+		if _, ok := m[x]; ok {
 			return append(result, el, x)
 		}
 
