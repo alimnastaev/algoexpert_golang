@@ -46,9 +46,8 @@ func TestSortedSquaredArray(t *testing.T) {
 		},
 	}
 
-	var got string
-
 	for _, tt := range tests {
+		var got string
 		t.Run(tt.name, func(t *testing.T) {
 			got = TournamentWinner(tt.competitions, tt.results)
 			require.Equal(t, got, tt.want)

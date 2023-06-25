@@ -39,9 +39,8 @@ func TestSortedSquaredArray(t *testing.T) {
 		},
 	}
 
-	var got int
-
 	for _, tt := range tests {
+		var got int
 		t.Run(tt.name, func(t *testing.T) {
 			got = NonConstructibleChange(tt.coins)
 			require.Equal(t, tt.want, got)

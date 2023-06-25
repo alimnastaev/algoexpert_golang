@@ -29,11 +29,9 @@ func TestSortedSquaredArray(t *testing.T) {
 		},
 	}
 
-	got := []int{}
-
 	for _, tt := range tests {
+		got := []int{}
 		t.Run(tt.name, func(t *testing.T) {
-
 			got = SortedSquaredArray1(tt.input)
 			require.Equal(t, got, tt.want)
 
