@@ -2,6 +2,8 @@ package first_non_repeating_character
 
 /*
 ! First Non-Repeating Character
+https://www.algoexpert.io/questions/first-non-repeating-character
+
 Write a function that takes in a string of lowercase English-alphabet letters and
 returns the index of the string's first non-repeating character.
 
