@@ -1,5 +1,9 @@
 package run_length_encoding
 
+import (
+	"fmt"
+)
+
 /*
 ! Run-Length Encoding
 https://www.algoexpert.io/questions/first-non-repeating-character
@@ -25,6 +29,24 @@ the aforementioned run should be encoded as "9A3A".
 */
 
 func RunLengthEncoding(str string) string {
-	// Write your code here.
-	return ""
+	var output, encoded string
+	counter, prevChar := 0, []rune(str)[0]
+
+	for idx, char := range str {
+		if counter == 9 || prevChar != char {
+			output += encoded
+			encoded = ""
+			counter, prevChar = 0, char
+		}
+
+		counter++
+		encoded = fmt.Sprintf("%d%s", counter, string(char))
+		prevChar = char
+
+		if idx == len(str)-1 {
+			output += encoded
+		}
+	}
+
+	return output
 }
