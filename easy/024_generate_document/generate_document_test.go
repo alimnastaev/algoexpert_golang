@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_RunLength(t *testing.T) {
+func Test_GenerateDocument(t *testing.T) {
 	characters := "Bste!hetsi ogEAxpelrt x "
 	document := "AlgoExpert is the Best!"
 	expected := true
