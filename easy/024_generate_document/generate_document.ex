@@ -1,7 +1,7 @@
 defmodule GenerateDocument do
-  def generate_document(_characters, "" = _document), do: true
+  def run(_characters, "" = _document), do: true
 
-  def generate_document(characters, document) do
+  def run(characters, document) do
     lookup_table =
       characters
       |> String.graphemes()
@@ -29,7 +29,7 @@ case System.argv() do
     defmodule GenerateDocumentTest do
       use ExUnit.Case
 
-      test "GenerateDocument.generate_document/2" do
+      test "GenerateDocument.run/2" do
         tests = [
           {"Bste!hetsi ogEAxpelrt x ", "AlgoExpert is the Best!", true},
           {"A", "a", false},
@@ -44,12 +44,13 @@ case System.argv() do
           {"helloworld ", "hello wOrld", false},
           {"helloworldO", "hello wOrld", false},
           {"helloworldO ", "hello wOrld", true},
-          {"&*&you^a%^&8766 _=-09     docanCMakemthisdocument", "Can you make this document &", true},
+          {"&*&you^a%^&8766 _=-09     docanCMakemthisdocument", "Can you make this document &",
+           true},
           {"abcabcabcacbcdaabc", "bacaccadac", true}
         ]
 
         Enum.each(tests, fn {characters, document, expected} ->
-          assert GenerateDocument.generate_document(characters, document) == expected
+          assert GenerateDocument.run(characters, document) == expected
         end)
       end
     end
