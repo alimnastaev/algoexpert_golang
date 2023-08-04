@@ -1,8 +1,6 @@
 package run_length_encoding
 
-import (
-	"fmt"
-)
+import "fmt"
 
 /*
 ! Run-Length Encoding
@@ -28,25 +26,23 @@ the aforementioned run should be encoded as "9A3A".
 	output: "9A4A2B4C2D"
 */
 
-func RunLengthEncoding(str string) string {
-	var output, encoded string
-	counter, prevChar := 0, []rune(str)[0]
+const TARGET = 9
+
+func RunLengthEncoding(str string) (output string) {
+	c, prvChar := 0, []rune(str)[0]
 
 	for idx, char := range str {
-		if counter == 9 || prevChar != char {
-			output += encoded
-			encoded = ""
-			counter, prevChar = 0, char
+		if c == TARGET || prvChar != char {
+			output += fmt.Sprintf("%d%s", c, string(prvChar))
+			c, prvChar = 0, char
 		}
 
-		counter++
-		encoded = fmt.Sprintf("%d%s", counter, string(char))
-		prevChar = char
+		c++
 
 		if idx == len(str)-1 {
-			output += encoded
+			output += fmt.Sprintf("%d%s", c, string(char))
 		}
 	}
 
-	return output
+	return
 }
