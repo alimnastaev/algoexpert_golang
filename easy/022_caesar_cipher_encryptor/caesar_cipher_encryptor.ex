@@ -14,6 +14,7 @@ defmodule CaesarCipherEncryptor do
   defp build_new_char(char, key) do
     char = char + key
     offset = char - @alph_end
+
     if offset > 0, do: @alph_start + offset, else: char
   end
 end
