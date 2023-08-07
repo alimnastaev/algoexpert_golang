@@ -8,7 +8,8 @@ defmodule CaesarCipherEncryptor do
     str
     |> String.to_charlist()
     |> Enum.reduce('', &[build_new_char(&1, key) | &2])
-    |> (&(&1 |> Enum.reverse() |> :unicode.characters_to_binary())).()
+    |> Enum.reverse()
+    |> :unicode.characters_to_binary()
   end
 
   defp build_new_char(char, key) do
