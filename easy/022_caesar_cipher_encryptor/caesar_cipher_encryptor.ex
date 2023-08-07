@@ -6,7 +6,7 @@ defmodule CaesarCipherEncryptor do
     key = rem(key, 26)
 
     str
-    |> String.to_charlist()
+    |> :unicode.characters_to_list()
     |> Enum.reduce('', &[build_new_char(&1, key) | &2])
     |> Enum.reverse()
     |> :unicode.characters_to_binary()
